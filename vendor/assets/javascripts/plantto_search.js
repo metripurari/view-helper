@@ -100,7 +100,7 @@ return null;
     {
             var doc_title = PlannTo.jQuery(document).title;
            
-          url = "http://"+domain + SubPath + "?item_ids="+item_ids+"&price_full_details="+show_details+ "&path=" + path + "&ref_url="+pathname+"&doc_title-"+doc_title+"&callback=?"
+          url = "http://"+domain + SubPath + "?q="+item_ids+"&price_full_details="+show_details+ "&path=" + path + "&ref_url="+pathname+"&doc_title-"+doc_title+"&callback=?"
 
             jQuery.getJSON(url, function (data) {
                 element_id.html(data.html);
@@ -123,41 +123,19 @@ return null;
 function main() {
     
     jQuery(document).ready(function(jQuery) {
-        url = getScriptUrl();
-        var doc_title = jQuery(document).title;
-        var pathname = getParam(url,"ref_url");
-        var item_id = getParam(url,"item_id");
-        var show_details = getParam(url,"show_details");
-        var ads = getParam(url,"advertisement");
-        var element_id = getParam(url,"element_id");
-        if (ads == "")
-        {
-          if(element_id == undefined || element_id == "")
-          {
-            element_id = "where_to_buy_items";
-          }
-          element = jQuery("#"+element_id)
-         planntowtbdivcreation (item_id,show_details,"wheretobuymain",element,element_id,pathname)
+       jQuery("#planto_search_item").live("keyup change", function(e) {
+           url = getScriptUrl();
+          var doc_title = jQuery(document).title;
+          var pathname = getParam(url,"ref_url");
+          var item_id = getParam(url,"item_id");
+          var show_details = getParam(url,"show_details");
+          var ads = getParam(url,"advertisement");
+          var element_id = getParam(url,"element_id");  
+         
+            element = jQuery("#planto_search_item").val()
+           planntowtbdivcreation (item_id,show_details,"wheretobuymain",element,element_id,pathname)
 
-       }
-       else
-       {
-      
-      if(element_id == undefined || element_id == "")
-        {
-          element_id = "advertisement";
-        }
-        url = "http://"+ domain +"/advertisement.js?item_ids="+item_id+"&price_full_details="+show_details+"&ref_url="+pathname+"&doc_title-"+doc_title+"&callback=?"
-        jQuery.getJSON(url, function (data) {
-            jQuery("#"+element_id).html(data.html);
         });
-      }
-
-      jQuery("#product_offers").live("click", function(){
-          
-        });
-
- 
       });
     }
  
