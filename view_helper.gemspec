@@ -5,7 +5,7 @@ require 'view_helper/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "view_helper"
-  spec.version       = ViewHelper::VERSION
+  spec.version       = ViewHelper::Rails::VERSION
   spec.authors       = ["Tripurari"]
   spec.email         = ["metripurari@gmail.com"]
   spec.description   = %q{TODO: Write a gem description}
