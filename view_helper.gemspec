@@ -1,6 +1,6 @@
 # coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+$:.push File.expand_path("../lib", __FILE__)
+
 require 'view_helper/version'
 
 Gem::Specification.new do |spec|
@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = ""
   spec.license       = "MIT"
 
-  gem.files         = `git ls-files`.split($/)
+  gem.files         = Dir["{lib,vendor}/**/*"]
   gem.require_paths = ["lib"]
   gem.add_dependency "railties", "~> 3.1"
 end
