@@ -13,7 +13,12 @@ Gem::Specification.new do |spec|
   spec.homepage      = ""
   spec.license       = "MIT"
 
-  gem.files         = Dir["{lib,vendor}/**/*"]
-  gem.require_paths = ["lib"]
-  gem.add_dependency "railties", "~> 3.1"
+  spec.files         = `git ls-files`.split($/)
+  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
+  spec.require_paths = ["lib"]
+
+  # gem.files         = Dir["{lib,vendor}/**/*"]
+  # gem.require_paths = ["lib"]
+  # gem.add_dependency "railties", "~> 3.1"
 end
