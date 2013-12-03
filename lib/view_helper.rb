@@ -13,6 +13,7 @@ module ViewHelper
     	html = ""
     	html = html + content_tag(:div, content_tag(:input, "Search An item on Planto.org", id: "planto_search_item"), :class => "strong")
     	html = html + content_tag(:a, "Search", id: :search_item_planto)
+      html.html_safe
     end
   end
 end
