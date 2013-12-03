@@ -11,8 +11,8 @@ module ViewHelper
   module ViewHelpers
     def build_form
     	html = ""
-    	content_tag(:div, content_tag(:text, "Search An item on Planto.org", id: "planto_search_item"), :class => "strong")
-    	content_tag(:a, "Search", id: :search_item_planto)
+    	html = html + content_tag(:div, content_tag(:input, "Search An item on Planto.org", id: "planto_search_item"), :class => "strong")
+    	html = html + content_tag(:a, "Search", id: :search_item_planto)
     end
   end
 end
