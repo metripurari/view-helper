@@ -127,13 +127,16 @@ function main() {
            url = getScriptUrl();
           var doc_title = jQuery(document).title;
           var pathname = getParam(url,"ref_url");
-          var item_id = getParam(url,"item_id");
+          var item_id = jQuery("#planto_search_item").val();
           var show_details = getParam(url,"show_details");
           var ads = getParam(url,"advertisement");
-          var element_id = getParam(url,"element_id");  
+          var element_id = "#display_search_item";  
          
-            element = jQuery("#planto_search_item").val()
-           planntowtbdivcreation (item_id,show_details,"wheretobuymain",element,element_id,pathname)
+          element = jQuery("#display_search_item").val()
+          if(item_id.length > 3)}
+            planntowtbdivcreation (item_id,show_details,"wheretobuymain",element,element_id,pathname);
+
+          }
 
         });
       });
